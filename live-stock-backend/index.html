@@ -4,8 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+
+    <style>
+
+        body {
+            margin: 0;
+        }
+
+        header {
+            background: red;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        main {
+            min-height: 400px;
+            padding: 1rem;
+            background: green;
+            text-align: center;
+            color: white;
+        }
+
+        footer {
+            background: blue;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+
+        .tagline {
+            font-size: 1rem;
+            color: #ddd;
+            margin: 0;
+        }
+
+        .products {
+            display: grid;                     
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 1rem;                         
+            padding: 1rem;
+        }
+
+        .product-card {
+            background: white;
+            color: black;
+            padding: 1rem;
+            text-align: center;
+        }
+
+
+        .product-card img {
+            width: 100%;                       
+            height: 150px;
+            object-fit: cover;                 
+            border-radius: 5px;
+        }
+
+        .product-card h2 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .product-card .price {
+            font-weight: bold;
+            color: green;
+            margin-top: 0.5rem;
+        }
+
+    
+
+    </style>
+
 </head>
 <body>
-    <p>Hello World!</p>
+    <header>
+        <h1>Header</h1>
+        <p class="headerline">Header Section</p>
+    </header>
+
+    <main>
+        <h1>Main</h1>
+        <p class="mainline">Main Section</p>
+    <section id="products" class="products" aria-label="Products"></section>
+  </main>
+
+    <footer>
+        <h1>Footer</h1>
+        <p class="footerline">Footer Section</p>
+    </footer>
+
+
+    <script>
+        console.log("JavaScript is working!");
+
+        // Your product code goes here
+const products = [
+    {
+        id: 1,
+        name: "Product 1",
+        description: "Description",
+        price: "Price",
+        image: ""
+    },
+    {
+        id: 2,
+        name: "Product 2",
+        description: "Description",
+        price: "Price",
+        image: ""
+    },
+    {
+        id: 3,
+        name: "Product 3",
+        description: "Description",
+        price: "Price",
+        image: ""
+    },
+    {
+        id: 4,
+        name: "Product 4",
+        description: "Description",
+        price: "Price",
+        image: ""
+    },
+    {
+        id: 5,
+        name: "Product 5",
+        description: "Description",
+        price: "Price",
+        image: ""
+    },
+    {
+        id: 6,
+        name: "Product 6",
+        description: "Description",
+        price: "Price",
+        image: ""
+    }
+];
+
+
+        const productsContainer = document.getElementById('products');
+
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.classList.add('product-card');
+
+            card.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h2>${product.name}</h2>
+                <p>${product.description}</p>
+                <p class="price">${product.price}</p>
+            `;
+
+            productsContainer.appendChild(card);
+        });
+    </script>
+    
 </body>
 </html>
