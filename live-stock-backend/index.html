@@ -3,170 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Live Backend Stock System</title>
 
+    <!-- Importing Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Minimal Professional Theme -->
     <style>
-
         body {
-            margin: 0;
+            background: #f7f7f7ce;
+            color: #333;
+            font-family: "Inter", Arial, sans-serif;
         }
 
-        header {
-            background: red;
-            color: white;
-            padding: 1rem;
-            text-align: center;
+        .navbar {
+            background: #ad080f !important; 
         }
 
-        main {
-            min-height: 400px;
-            padding: 1rem;
-            background: green;
-            text-align: center;
-            color: white;
+        .navbar .nav-link {
+            color: white !important;
         }
 
-        footer {
-            background: blue;
-            color: white;
-            padding: 1rem;
-            text-align: center;
+        .navbar .nav-link:hover {
+            background: #38040e !important;
         }
 
-
-        .tagline {
-            font-size: 1rem;
-            color: #ddd;
-            margin: 0;
+        .navbar .navbar-brand:hover {
+            background: #38040e !important;
         }
 
-        .products {
-            display: grid;                     
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 1rem;                         
-            padding: 1rem;
+        #nav-logo {
+            height: 28px;
+            width: 30x;
+            position: relative;
+            left: -4px
         }
 
-        .product-card {
-            background: white;
-            color: black;
-            padding: 1rem;
-            text-align: center;
+        #hero {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
         }
 
-
-        .product-card img {
-            width: 100%;                       
-            height: 150px;
-            object-fit: cover;                 
-            border-radius: 5px;
+        #hero h1 {
+            color: #1f2937;
         }
 
-        .product-card h2 {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-        }
-
-        .product-card p {
-            font-size: 0.9rem;
+        #hero p {
             color: #555;
         }
 
-        .product-card .price {
-            font-weight: bold;
-            color: green;
-            margin-top: 0.5rem;
+        .btn-primary-custom {
+            background: #cb0b0a;
+            border: none;
+            color: white;
+            font-weight: 500;
+            padding: 10px 22px;
+            transition: 0.2s;
         }
 
-    
+        .btn-primary-custom:hover {
+            background: #38040e;
+            color: white;
+        }
+
+        .card {
+            border: 1px solid #e5e5e5;
+            background: white;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .card-title {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .card-text {
+            color: #555;
+        }
+
+        footer {
+            background: #ad080f !important;
+        }
+
+        .product-section img {
+            width: auto;   
+            height: 300px;
+        }
+
+ 
 
     </style>
 
 </head>
+
 <body>
-    <header>
-        <h1>Header</h1>
-        <p class="headerline">Header Section</p>
-    </header>
 
-    <main>
-        <h1>Main</h1>
-        <p class="mainline">Main Section</p>
-    <section id="products" class="products" aria-label="Products"></section>
-  </main>
+    <!-- NAVBAR  -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
 
-    <footer>
-        <h1>Footer</h1>
-        <p class="footerline">Footer Section</p>
+            <img src="https://media.istockphoto.com/id/1231977703/vector/bended-line-letter-logotype-l.jpg?s=612x612&w=0&k=20&c=fz8JsZq9ejQEfvuYMAtM1evGzpFUcIbfuI5S3_OfsF4=" class="d-inline-block align-top mr-2" id="nav-logo"> 
+        
+            <a class="navbar-brand" href="#">Live Backend Stock System</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="text-center py-5">
+        <div class="container">
+            <h1 class="display-3"><b>Live.Source</b></h1>
+            <p class="lead"><i>An automatically live demo website connected to a database that updates live!</i></p>
+            <a href="#products" class="btn btn-primary-custom btn-lg mt-3">View Products</a>
+        </div>
+    </section>
+
+
+    <!-- PRODUCT SECTION  -->
+    <section class="product-section">
+        <div class="container text-center">
+            <h2 class="mb-4">Current Products</h2>
+
+            <div id="products" class="row"></div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer id="footer" class="text-white text-center py-4">
+        <div class="container">
+            <h5>Stock Backend Demo Site</h5>
+            <p class="mb-0">© 2025 Live-Stock-Backend — All Rights Reserved</p>
+        </div>
     </footer>
 
 
+    <!-- SCRIPT -->
     <script>
-        console.log("JavaScript is working!");
+        const products = [
+            { id: 1, name: "Jordan 4", description: "Size 7.5 Mens", price: "£250", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsWlEVavZPg4zWYxjx1H28RNuYl1o7joMN8Q&s" },
+            { id: 2, name: "Moncler Maya", description: "Mens Size S", price: "£200", image: "https://i.ebayimg.com/images/g/OiIAAOSwpGdkBdkY/s-l1200.jpg" },
+            { id: 3, name: "Amiri Cap", description: "Trucker Hat", price: "£300", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFy4Q1DibMJs_UO7AAxKZuYMotbirUiLZpPA&s"},
+            { id: 4, name: "YSL Jumper", description: "Saint Laurent Jumper", price: "£100", image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQCS_BSzpG-ULVK2lTfnAB5EvcXWDCQ7AjLJE1qz9LopJ6zGpK1z5G87zhelwFgNd4z3WKBhewdZChbMc8GQx27M_FsoReNwJ-CgoMNXnW3iB4LHeCA_As2bYYo&usqp=CAc" },
+        ];
 
-        // Your product code goes here
-const products = [
-    {
-        id: 1,
-        name: "Product 1",
-        description: "Description",
-        price: "Price",
-        image: ""
-    },
-    {
-        id: 2,
-        name: "Product 2",
-        description: "Description",
-        price: "Price",
-        image: ""
-    },
-    {
-        id: 3,
-        name: "Product 3",
-        description: "Description",
-        price: "Price",
-        image: ""
-    },
-    {
-        id: 4,
-        name: "Product 4",
-        description: "Description",
-        price: "Price",
-        image: ""
-    },
-    {
-        id: 5,
-        name: "Product 5",
-        description: "Description",
-        price: "Price",
-        image: ""
-    },
-    {
-        id: 6,
-        name: "Product 6",
-        description: "Description",
-        price: "Price",
-        image: ""
-    }
-];
-
-
-        const productsContainer = document.getElementById('products');
+        const productsContainer = document.getElementById("products");
 
         products.forEach(product => {
-            const card = document.createElement('div');
-            card.classList.add('product-card');
+            const col = document.createElement("div");
+            col.classList.add("col-12", "col-md-4", "col-lg-3", "mb-4");
 
-            card.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <h2>${product.name}</h2>
-                <p>${product.description}</p>
-                <p class="price">${product.price}</p>
+            col.innerHTML = `
+                <div class="card h-100 shadow-sm">
+                    <img src="${product.image || 'https://via.placeholder.com/300'}"
+                         class="card-img-top"
+                         alt="${product.name}">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text">${product.description}</p>
+                        <p class="text-primary font-weight-bold">${product.price}</p>
+                        <button class="btn btn-primary-custom btn-sm mt-2">Buy Now</button>
+                    </div>
+                </div>
             `;
 
-            productsContainer.appendChild(card);
+            productsContainer.appendChild(col);
         });
     </script>
-    
+
+    <!-- Bootstrap JS (for navbar toggle) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
