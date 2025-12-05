@@ -8,75 +8,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <!-- CSS -->
-    <style>
-        body {
-            background: #f7f7f7ce;
-            color: #333;
-            font-family: "Inter", Arial, sans-serif;
-        }
-
-        .navbar {
-            background: #ad080f !important; 
-        }
-
-        .navbar .nav-link {
-            color: white !important;
-        }
-
-        .navbar .nav-link:hover {
-            background: #38040e !important;
-        }
-
-        .navbar .navbar-brand:hover {
-            background: #38040e !important;
-        }
-
-        #nav-logo {
-            height: 28px;
-            width: 30px;
-            position: relative;
-            left: -4px
-        }
-
-        #hero {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .btn-primary-custom {
-            background: #cb0b0a;
-            border: none;
-            color: white;
-            font-weight: 500;
-            padding: 10px 22px;
-            transition: 0.2s;
-        }
-        .btn-primary-custom:hover {
-            background: #38040e;
-            color: white;
-        }
-
-        .card {
-            border: 1px solid #e5e5e5;
-            background: white;
-            transition: box-shadow 0.2s ease;
-        }
-        .card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-        }
-
-        .product-section img {
-            width: auto;
-            height: 300px;
-        }
-    </style>
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
@@ -139,20 +77,21 @@
                 </div>
 
                 <div class="modal-body">
-                    <p><b>Price: £<span id="modalProductPrice"></span></b></p>
+                    <form action="hash.php" method="POST">
+                        <p><b>Price: £<span id="modalProductPrice"></span></b></p>
 
-                    <label>Your Email</label>
-                    <input type="email" class="form-control mb-2" id="email" placeholder="Enter email">
+                        <label>Your Email</label>
+                        <input type="email" class="form-control mb-2" id="email" name="email" placeholder="Enter email">
 
-                    <label>Your Password</label>
-                    <input type="password" class="form-control mb-2" id="pass" placeholder="Enter password">
+                        <label>Your Password</label>
+                        <input type="password" class="form-control mb-2" id="pass" name="pass" placeholder="Enter password">
 
-                    <label>Delivery Address</label>
-                    <textarea class="form-control mb-3" rows="2" id="deliveryAddress" placeholder="Address"></textarea>
+                        <label>Delivery Address</label>
+                        <textarea class="form-control mb-3" rows="2" id="deliveryAddress" name="address" placeholder="Address"></textarea>
                    
-                    <button class="btn btn-primary-custom btn-block confirm-purchase">Confirm Purchase</button>
+                        <button type="submit" class="btn btn-primary-custom btn-block confirm-purchase">Confirm Purchase</button>
+                    </form>
                 </div>
-
             </div>
         </div>
     </div>
@@ -225,5 +164,10 @@
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Database Connection -->
+    <?php include "db.php"; ?>
+
+    
 </body>
 </html>
