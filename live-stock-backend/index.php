@@ -13,7 +13,7 @@ include "db.php";
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=9999">
 </head>
 
 <body>
@@ -21,15 +21,20 @@ include "db.php";
 <!-- pulls products from database and exposes them to JS -->
 <?php grabProducts(); ?>
 
+<?php if (isset($_GET['success'])): ?>
+    <div class="alert alert-success m-0 p-2 rounded-0 text-center">Purchase successful!</div>
+<?php endif; ?>
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid pl-0">
-        <!-- logo -->
-        <img src="https://media.istockphoto.com/id/1231977703/vector/bended-line-letter-logotype-l.jpg?s=612x612&w=0&k=20&c=fz8JsZq9ejQEfvuYMAtM1evGzpFUcIbfuI5S3_OfsF4="
-             class="d-inline-block align-top mr-2" id="nav-logo">
 
-        <!-- title -->
-        <a class="navbar-brand" href="#">Live Backend Stock System</a>
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="https://media.istockphoto.com/id/1231977703/vector/bended-line-letter-logotype-l.jpg?s=612x612&w=0&k=20&c=fz8JsZq9ejQEfvuYMAtM1evGzpFUcIbfuI5S3_OfsF4="
+                 id="nav-logo">
+            Live Backend Stock System
+        </a>
+
     </div>
 </nav>
 
@@ -79,16 +84,16 @@ include "db.php";
 
                     <!-- full name -->
                     <label>Full Name</label>
-                    <input type="text" class="form-control mb-2" id="fullname" name="fullname" placeholder="Enter full name">
+                    <input type="text" class="form-control mb-2" id="fullname" name="fullname" placeholder="Enter full name" required minlength="2">
 
                     <!-- email -->
                     <label>Your Email</label>
-                    <input type="email" class="form-control mb-2" id="email" name="email" placeholder="Enter email">
+                    <input type="email" class="form-control mb-2" id="email" name="email" placeholder="Enter email" required>
 
 
                     <!-- delivery address -->
                     <label>Delivery Address</label>
-                    <textarea class="form-control mb-3" rows="2" id="deliveryAddress" name="address" placeholder="Address"></textarea>
+                    <textarea class="form-control mb-3" rows="2" id="deliveryAddress" name="address" placeholder="Address" required minlength="5"></textarea>
 
                     <!-- submit -->
                     <button type="submit" class="btn btn-primary-custom btn-block confirm-purchase">
