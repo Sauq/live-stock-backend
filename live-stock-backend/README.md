@@ -44,7 +44,6 @@ BACKEND-STOCK-SYSTEM/
 ### **order_handling.php**
 - Validates incoming form data  
 - Retrieves product ID  
-- Checks stock (if implemented)  
 - Inserts order into database  
 - Redirects to thank‑you page  
 - Shows Bootstrap success alert  
@@ -59,7 +58,7 @@ BACKEND-STOCK-SYSTEM/
 ## Security
 - All SQL queries use prepared statements  
 - No sensitive data stored unhashed  
-- No user accounts → no password hashing required  
+- No user accounts so no password hashing required  
 
 ---
 
