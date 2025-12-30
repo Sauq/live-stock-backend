@@ -63,10 +63,11 @@ BACKEND-STOCK-SYSTEM/
 ---
 
 ## Setup Instructions
-1. Import **dynamicstock.sql** into phpMyAdmin  
-2. Update database credentials in **db.php**  
-3. Place project in your local server directory (XAMPP/MAMP)  
-4. Visit:  
+1. Read the diagrams/Live Backend Stock System - User Guide.pdf (Has screenshots and explains each file/function)
+2. Import **dynamicstock.sql** into phpMyAdmin  
+3. Update database credentials in **db.php**  
+4. Place project in your local server directory (XAMPP/MAMP)  
+5. Visit:  
    ```
    http://localhost/testing/index.php
    ```
@@ -74,4 +75,5 @@ BACKEND-STOCK-SYSTEM/
 ---
 
 ### ⚠️ Disclaimer
+**No Payment Function is in this as it is an example this can be added using third party softwares such as paypal etc.**
 **All current default data are NOT mine and are placeholders used only for demonstration purposes.**
